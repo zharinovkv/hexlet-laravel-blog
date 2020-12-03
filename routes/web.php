@@ -17,12 +17,26 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::get('about', function () {
-    return view('about');
+    $tags = ['обучение', 'программирование', 'php', 'oop'];
+    return view('about', ['tags' => $tags]);
 });
 
 Route::get('/welcome', function () {
     return '<h1>welcome</h1>';
 });
 
+
+$team = [
+    ['name' => 'Hodor', 'position' => 'programmer'],
+    ['name' => 'Joker', 'position' => 'CEO'],
+    ['name' => 'Elvis', 'position' => 'CTO'],
+];
+
+Route::get('team', function () use ($team) {
+    // BEGIN (write your solution here)
+    return view('team', ['team' => $team]);
+    // END
+});
 
